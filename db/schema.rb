@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_08_10_123151) do
   create_table "authors", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "contact"
     t.string "email"
     t.datetime "created_at", null: false
@@ -20,9 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_123151) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "name"
-    t.integer "author_id"
-    t.integer "category_id"
+    t.string "name", null: false
+    t.integer "author_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_123151) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
